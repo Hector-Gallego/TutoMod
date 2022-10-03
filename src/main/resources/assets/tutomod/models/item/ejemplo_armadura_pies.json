@@ -1,0 +1,6 @@
+{
+  "parent" : "minecraft:item/generated",
+  "textures": {
+    "layer0" : "tutomod:items/ejemplo_armadura_pies"
+  }
+}

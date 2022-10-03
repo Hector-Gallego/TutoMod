@@ -1,0 +1,18 @@
+
+modLoader="javafml"
+loaderVersion="[41,)"
+license="MIT"
+
+[[mods]] #mandatory
+
+modId="tutomod" #mandatory
+version="1.0" #mandatory
+displayName="Tuto mod" #mandatory
+logoFile="" #optional
+credits="el turtyduqui pendejo" #optional
+authors="hector hernandez" #optional
+
+description='''
+Primer mod de prueba
+'''
+
