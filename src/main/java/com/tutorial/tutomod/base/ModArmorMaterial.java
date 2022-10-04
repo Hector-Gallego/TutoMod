@@ -49,7 +49,7 @@ public record ModArmorMaterial(String name,
 
     @Override
     public String getName() {
-        return this.name;
+        return TutoMod.MODID + ":" + this.name;
     }
 
     @Override

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tutomod:example_block"
+    }
+  ],
+  "result": {
+    "item": "tutomod:example_item",
+    "count": 9
+  }
+}

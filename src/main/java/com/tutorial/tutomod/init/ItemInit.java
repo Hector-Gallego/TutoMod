@@ -1,8 +1,8 @@
 package com.tutorial.tutomod.init;
 
 import com.tutorial.tutomod.TutoMod;
+import com.tutorial.tutomod.base.FuelItem;
 import com.tutorial.tutomod.base.ModArmorMaterial;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -10,10 +10,12 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.common.ForgeTier;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.Nullable;
 
 public class ItemInit {
 
@@ -25,64 +27,63 @@ public class ItemInit {
 
 
     //primer item
-    public static  final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("ejemplo_item",
-            ()-> new Item( itemProperties()
-                    .fireResistant()
-                    .durability(100)) );
+    public static  final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item",
+            ()-> new FuelItem( itemProperties(),500));
 
     // segundo item
-    public static final RegistryObject<Item>  ITEM_2 = ITEMS.register("segundo_item",
-            ()-> new Item(itemProperties()));
+    public static final RegistryObject<Item>  EXAMPLE_ITEM2 = ITEMS.register("example_item2",
+            ()-> new Item(itemProperties()
+                    .durability(20)));
 
 
 
-    // Ejemplo de comida
+    // example de comida
 
-    public static final  RegistryObject<Item> EJEMPLO_COMIDA = ITEMS.register("ejemplo_comida",
+    public static final  RegistryObject<Item> EXAMPLE_FOOD = ITEMS.register("example_food",
             () -> new Item( itemProperties()
-                    .food(Foods.EJEMPLO_COMIDA)));
+                    .food(Foods.EXAMPLE_FOOD)));
 
 
-    // ejemplo de espada
-    public static final RegistryObject<SwordItem> EJEMPLO_ESPADA = ITEMS.register("ejemplo_espada",
-            ()-> new SwordItem(ToolTiers.EJEMPLO_TIER, 20, 10, itemProperties()));
+    // example de espada
+    public static final RegistryObject<SwordItem> EXAMPLE_SWORD = ITEMS.register("example_sword",
+            ()-> new SwordItem(ToolTiers.EXAMPLE_TOOL_TIER, 20, 10, itemProperties()));
 
 
-    // ejemplo de pico
-    public static final RegistryObject<PickaxeItem> EJEMPLO_PICO = ITEMS.register("ejemplo_pico",
-            ()-> new PickaxeItem(ToolTiers.EJEMPLO_TIER, 15, 8, itemProperties()));
+    // example de pico
+    public static final RegistryObject<PickaxeItem> EXAMPLE_PICKAXE = ITEMS.register("example_pickaxe",
+            ()-> new PickaxeItem(ToolTiers.EXAMPLE_TOOL_TIER, 15, 8, itemProperties()));
 
 
-    // ejemplo de pala
-    public static final RegistryObject<ShovelItem> EJEMPLO_PALA = ITEMS.register("ejemplo_pala",
-            ()-> new ShovelItem(ToolTiers.EJEMPLO_TIER, 10, 6, itemProperties()));
+    // example de pala
+    public static final RegistryObject<ShovelItem> EXAMPLE_SHOVEL= ITEMS.register("example_shovel",
+            ()-> new ShovelItem(ToolTiers.EXAMPLE_TOOL_TIER, 10, 6, itemProperties()));
 
-    // ejemplo de hacha
-    public static final RegistryObject<AxeItem> EJEMPLO_HACHA = ITEMS.register("ejemplo_hacha",
-            ()-> new AxeItem(ToolTiers.EJEMPLO_TIER, 5, 4, itemProperties()));
+    // example de hacha
+    public static final RegistryObject<AxeItem> EXAMPLE_AXE = ITEMS.register("example_axe",
+            ()-> new AxeItem(ToolTiers.EXAMPLE_TOOL_TIER, 5, 4, itemProperties()));
 
-    // ejemplo de azada
-    public static final RegistryObject<HoeItem> EJEMPLO_AZADA = ITEMS.register("ejemplo_azada",
-            ()-> new HoeItem(ToolTiers.EJEMPLO_TIER, 4, 3, itemProperties()));
-
-
-
-    // ejemplo de armadura casco
-    public static final RegistryObject<ArmorItem> EJEMPLO_ARMADURA_CASCO = ITEMS.register("ejemplo_armadura_casco",
-            () -> new ArmorItem(ArmorTiers.EJEMPLO_ARMOR_TIER, EquipmentSlot.HEAD, itemProperties()));
-
-   // ejemplo de armadura pecho
-    public static final RegistryObject<ArmorItem> EJEMPLO_ARMADURA_PECHO = ITEMS.register("ejemplo_armadura_pecho",
-            () -> new ArmorItem(ArmorTiers.EJEMPLO_ARMOR_TIER, EquipmentSlot.CHEST, itemProperties()));
-
-    // ejemplo de armadura piernas
-    public static final RegistryObject<ArmorItem> EJEMPLO_ARMADURA_PIERNAS = ITEMS.register("ejemplo_armadura_piernas",
-            () -> new ArmorItem(ArmorTiers.EJEMPLO_ARMOR_TIER, EquipmentSlot.LEGS, itemProperties()));
+    // example de azada
+    public static final RegistryObject<HoeItem> EXAMPLE_HOE = ITEMS.register("example_hoe",
+            ()-> new HoeItem(ToolTiers.EXAMPLE_TOOL_TIER, 4, 3, itemProperties()));
 
 
-    // ejemplo de armadura piernas
-    public static final RegistryObject<ArmorItem> EJEMPLO_ARMADURA_PIES = ITEMS.register("ejemplo_armadura_pies",
-            () -> new ArmorItem(ArmorTiers.EJEMPLO_ARMOR_TIER, EquipmentSlot.FEET, itemProperties()));
+
+    // example de armadura casco
+    public static final RegistryObject<ArmorItem> EXAMPLE_HELMET = ITEMS.register("example_helmet",
+            () -> new ArmorItem(ArmorTiers.EXAMPLE_ARMOR_TIER, EquipmentSlot.HEAD, itemProperties()));
+
+   // example de armadura pecho
+    public static final RegistryObject<ArmorItem> EXAMPLE_CHESTPLATE = ITEMS.register("example_chestplate",
+            () -> new ArmorItem(ArmorTiers.EXAMPLE_ARMOR_TIER, EquipmentSlot.CHEST, itemProperties()));
+
+    // example de armadura piernas
+    public static final RegistryObject<ArmorItem> EXAMPLE_LEGGINGS = ITEMS.register("example_leggings",
+            () -> new ArmorItem(ArmorTiers.EXAMPLE_ARMOR_TIER, EquipmentSlot.LEGS, itemProperties()));
+
+
+    // example de armadura piernas
+    public static final RegistryObject<ArmorItem> EXAMPLE_BOOTS  = ITEMS.register("example_boots",
+            () -> new ArmorItem(ArmorTiers.EXAMPLE_ARMOR_TIER, EquipmentSlot.FEET, itemProperties()));
 
 
     /**
@@ -97,9 +98,9 @@ public class ItemInit {
 
 
 
-    // calse auxiliar para dar los ejemplos de comida
+    // calse auxiliar para dar los examples de comida
     public static class Foods{
-        public static final FoodProperties EJEMPLO_COMIDA = new FoodProperties.Builder()
+        public static final FoodProperties EXAMPLE_FOOD = new FoodProperties.Builder()
                 .nutrition(6)
                 .saturationMod(0.6f)
                 .meat()
@@ -109,25 +110,25 @@ public class ItemInit {
     }
 
     public static class ToolTiers {
-        public static final Tier EJEMPLO_TIER = new ForgeTier(2,
+        public static final Tier EXAMPLE_TOOL_TIER = new ForgeTier(2,
                 800,
                 1.5f,
                 1.5f,
                 3,
-                null,
+                BlockInit.Tags.NEEDS_EXAMPLE_TOOL,
                 ()-> Ingredient.of(ItemInit.EXAMPLE_ITEM.get()));
     }
 
     public static class ArmorTiers {
 
-        public static ArmorMaterial EJEMPLO_ARMOR_TIER = new ModArmorMaterial(
+        public static ArmorMaterial EXAMPLE_ARMOR_TIER = new ModArmorMaterial(
                 "example",
                 500,
                 new int[]{20, 40, 50, 10},
                 300,
                 SoundEvents.ARMOR_EQUIP_DIAMOND,
                 0.0f,
-                12f,
+                0.0f,
                 ()-> Ingredient.of(ItemInit.EXAMPLE_ITEM.get()));
     }
 
